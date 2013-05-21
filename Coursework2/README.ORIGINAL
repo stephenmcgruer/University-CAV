@@ -1,0 +1,60 @@
+Name:    Stephen McGruer
+Matric:  0840449
+
+This file is the README for my submission for the CAV Coursework 2. It
+describes how to run my code and what I have implemented.
+
+#####################
+Building the project.
+#####################
+
+The project is pre-compiled into the executable "./bin/cav2".  Should you
+wish to re-compile the source files, or re-generate the documentation, a
+Makefile is provided. Running "make" will compile the code. Running "make
+doxygen" will generate the documentation. Finally, running "make clean" will
+remove the files in the ./bin folder and the documentation.
+
+####################
+Running the project.
+####################
+
+./bin/cav2 [-d n] head_file
+
+The '-d' option allows you to select either a 2D view (n = 2) or a 3D view (n =
+3). The default view is 2 dimensional.
+
+########################
+Using the project.
+########################
+
+A transparency level (between 0 - 1) controls how much of the face is shown.
+When this is higher, the outer layers (e.g. the flesh, hair, etc) will not
+be shown. The transparency layer can either be controlled by stepping its
+value, or by selecting a pre-set value. The keyboard controls are:
+
+= or +      Increase the transparency level by 0.05.
+-           Decrease the transparency level by 0.05.
+0 to 9      Set the transparency level to 0.0 to 0.9.
+
+If using the 3D view of the model, the head can be rotated:
+
+[           Increase the rotation of the head.
+]           Decrease the rotation of the head.
+
+#################
+Project Features.
+#################
+
+  * A colour transfer function that attempts to isolate the flesh
+    (red, darker is deeper), the bone (white, darker is deeper),
+    and the hair (green).
+  * An opacity transfer function that attempts to allow the viewing
+    of the bone and the flesh at the same time.
+  * The ability to view the model in 3D.
+
+#################
+Images.
+################
+
+A set of images are included in the images folder, showing the program
+in various states of execution.

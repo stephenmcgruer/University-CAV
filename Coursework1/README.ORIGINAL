@@ -1,0 +1,68 @@
+Name:    Stephen McGruer
+Matric:  0840449
+
+This file is the README for my submission for the CAV Coursework 2. It
+describes how to run my code and what I have implemented.
+
+#####################
+Building the project.
+#####################
+
+The project is pre-compiled into the executable "./bin/cav".  Should you
+wish to re-compile the source files, or re-generate the documentation, a
+Makefile is provided. Running "make" will compile the code. Running "make
+doxygen" will generate the documentation. Finally, running "make clean" will
+remove the files in the ./bin folder and the documentation.
+
+####################
+Running the project.
+####################
+
+./bin/cav object_file weights_file
+
+The bones have been hard-coded into the code, and so do not need to be passed
+as a parameter.
+
+########################
+Using the project.
+########################
+
+My project allows both direct control of the model using the keyboard, and also
+keyframe-based animation. Both of these are forward kinematics - the user
+is able to manipulate the joint parameters (rotations in the x, y, and z-axes),
+and the model moves accordingly. The keyboard controls are:
+
+1,2,3,4 to select bones 1,2,3,4 (the right leg.)
+5,6,7,8 to select bones 18,19,20,21 (the left leg.)
+a,s,d,f to select bones 14,15,16,17 (the right arm.)
+g,h,j,k to select bones 9,10,11,12 (the left arm.)
+
+x,y,z to select the x, y or z-axis.
+-,+ to increment or decrement the angle of the selected bone in the selected
+    axis.
+
+p to print the current keyframe (useful for creating animations.)
+
+[ to run the animation.
+] to run a single cycle of CCD (see Project Features.)
+
+# to reset the model to it's default skeleton.
+
+
+#################
+Project Features.
+#################
+
+  * Skin-to-skeleton rigging, using linear blending.
+    * No attempt made to correct the candy-wrapper or joint collapse problems.
+  * Forward kinemtatics, defined in terms of joint angles.
+    * Able to be controlled either manually via the keyboard, or animated with
+      keyframes.
+    * Keyframes are linearly interpolated.
+    * The given animation(s) were all manually created, and thus are a bit clunky.
+  * A non-complete attempt at trigonometric CCD.
+    * I struggled to determine the rotations required to move one point on a
+      sphere (the effector) to another point (the closest point to the target).
+      Finding the rotations are needed to move any intermediary joints. 
+    * A full explanation along with my current code can be found in 
+      CCDMoveBoneTo(...) in the Skeleton class (skeleton.cc).
